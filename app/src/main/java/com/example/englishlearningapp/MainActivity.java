@@ -8,11 +8,9 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-
 import entities.Word;
+import entities.Data_base;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,20 +21,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public ArrayList<Word> createDataBase() {
-        Word word1 = new Word("House", "Дом");
-        Word word2 = new Word("Person", "Личность");
-        Word word3 = new Word("Cat", "Кот");
-        Word word4 = new Word("Dog", "Собака");
-        Word word5 = new Word("Laptop", "Ноутбук");
-
-        ArrayList<Word> wordsDB = new ArrayList<>(5);
-        wordsDB.add(word1);
-        wordsDB.add(word2);
-        wordsDB.add(word3);
-        wordsDB.add(word4);
-        wordsDB.add(word5);
-        return wordsDB;
+     Data_base db = Data_base.getInstance();
+     db.createDB(this);
+     return db.getData_base();
     }
+
 
     public void onClick(View view) {
         EditText wordObj = (EditText) findViewById(R.id.editText2);
