@@ -3849,7 +3849,7 @@
 3849 	scrape together 	[skreɪptəˈgɛðə] 	наскрести (денег)
 3850 	scratch 	[skræʧ] 	царапать, царапина
 3851 	scream 	[skriːm] 	кричать, крик, вопль
-3852 	screech 	[skriːʧ] 	визг, скрип, хрип и т. д.
+3852 	screech 	[skriːʧ] 	визг, скрип, хрип
 3853 	screenplay 	[ˈskriːnpleɪ] 	сценарий
 3854 	screw 	[skruː] 	винт, ввинчивать
 3855 	screw 	[skruː] 	к чёрту
@@ -4633,7 +4633,7 @@
 4633 	transfer 	[trænsˈfɜ] 	перевести, передать
 4634 	transition 	[trænˈsɪʒən] 	переход
 4635 	transmit 	[trænzˈmɪt] 	передавать, переносить
-4636 	transparent 	[trænsˈpeərənt] 	прозрачный
+4636 	transparent 	[trænsˈpeərənt] прозрачный
 4637 	trap 	[træp] 	ловушка, ловить
 4638 	trash 	[træʃ] 	мусор
 4639 	tray 	[treɪ] 	лоток, поднос, поддон
@@ -4675,7 +4675,7 @@
 4675 	tube 	[tjuːb] 	тюбик
 4676 	tube 	[tjuːb] 	труба
 4677 	tube 	[tjuːb] 	метро (в Лондоне)
-4678 	tuck 	[tʌk] 	подоткнуть, заправить и т. д.
+4678 	tuck 	[tʌk] 	подоткнуть, заправить
 4679 	tug 	[tʌg] 	тянуть, рывок
 4680 	tuition 	[tju(ː)ˈɪʃən] 	обучение, плата за обучение
 4681 	tumble 	[ˈtʌmbl] 	перевернуться, кувыркнуться

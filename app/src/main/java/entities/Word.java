@@ -1,17 +1,29 @@
 package entities;
 
+import java.util.ArrayList;
+
 public class Word {
     private String en;
     private String rus;
     private String transcription;
+    private ArrayList<String> rusTranslations;
 
-    public Word(String en, String rus, String transcription) {
+    public Word(String en, String rus, String transcription, ArrayList<String> rusTranslations) {
         this.en = en;
         this.rus = rus;
         this.transcription = transcription;
+        this.rusTranslations = rusTranslations;
     }
 
     public Word() {
+    }
+
+    public ArrayList<String> getRusTranslations() {
+        return rusTranslations;
+    }
+
+    public void addToRusTranslations(String rusWord){
+        rusTranslations.add(rusWord);
     }
 
     public String getTranscription() {

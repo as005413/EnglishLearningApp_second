@@ -44,12 +44,15 @@ public class Data_base {
                         en = "",
                         rus = "",
                         transcription;
+                ArrayList<String> rusTranslations;
 
                 transcription = createTranscription(oneWord);
                 en = createEnWord(oneWord, en);
                 rus = createRusWord(oneWord, rus);
+                rusTranslations = createSomeRussianTranslations(rus);
 
-                Word word = new Word(en, rus, transcription);
+
+                Word word = new Word(en, rus, transcription, rusTranslations);
                 data_base.add(word);
             }
 
@@ -64,9 +67,14 @@ public class Data_base {
 
     private String createRusWord(String where, String rus) {
         for (int i = 0; i < where.length(); i++) {
-            if ((int) where.charAt(i) >= 'а' &&
-                    where.charAt(i) <= 'я' || where.charAt(i) == ',') {
+            if ((int) where.charAt(i) >= 'а' && where.charAt(i) <= 'я' ||
+                    where.charAt(i) == ',' ||
+                    where.charAt(i) == '(' || where.charAt(i) == ')') {
                 rus += where.charAt(i);
+            }
+            else if(where.charAt(i) == ' ' && where.charAt(i+1) >= 'а' && where.charAt(i+1) <= 'я' &&
+                    where.charAt(i-1) >= 'а' && where.charAt(i-1) <= 'я' ){
+                rus+=' ';
             }
         }
         return rus;
@@ -82,14 +90,40 @@ public class Data_base {
             }
         }
 
-        for (int i = numberOfStart; where.charAt(i) >= 97 &&
-                where.charAt(i) <= 122; i++) {
+        boolean space = true;
+        for (int i = numberOfStart;
+             where.charAt(i) >= 97 &&
+                     where.charAt(i) <= 122 ||
+                     where.charAt(i) == ' ';
+             i++) {
+
+            if (where.charAt(i) == ' ' &&
+                    (where.charAt(i + 1) < 97 || where.charAt(i + 1) > 122))
+                break;
             en += where.charAt(i);
         }
         return en;
     }
 
+    private ArrayList<String> createSomeRussianTranslations(String rus){
+        ArrayList<String> rusTranslations = new ArrayList<>();
+        rus+=',';
+        StringBuffer rus_ = new StringBuffer(rus);
+
+        if(rus_.indexOf("(") + rus_.indexOf(")") > 0) {
+            rus_.replace(rus_.indexOf("("), rus_.indexOf(")") + 1, "");
+        }
+
+        while(!rus_.toString().equals("")) {
+            rusTranslations.add(rus_.substring(0,rus_.indexOf(",")));
+            rus_.replace(0,rus_.indexOf(",")+1,"");
+        }
+        return  rusTranslations;
+    }
+
     private String createTranscription(String where) {
         return where.substring(where.indexOf('['), where.indexOf(']') + 1);
     }
+
+
 }
