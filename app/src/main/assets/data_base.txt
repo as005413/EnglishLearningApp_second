@@ -4419,9 +4419,9 @@
 4422 	swear 	[sweə] 	ругаться
 4423 	sweat 	[swɛt] 	пот, потеть
 4424 	sweep 	[swiːp] 	размах, охват
-4425 	sweep (swept, swept) 	[swiːp] 	подметать
+4425 	sweep  	[swiːp] 	подметать
 4426 	sweetheart 	[ˈswiːthɑːt] 	возлюбленный (ая), милый
-4427 	swell (swelled, swollen) 	[swɛl] 	раздуваться, распухать
+4427 	swell  	[swɛl] 	раздуваться, распухать
 4428 	swift 	[swɪft] 	быстрый, скорый
 4429 	swing (swung, swung) 	[swɪŋ] 	качать, махать
 4430 	swirl 	[swɜːl] 	кружить, вихрь, водоворот

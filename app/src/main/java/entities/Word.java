@@ -60,7 +60,7 @@ public class Word {
                 "English variant: " + en + "\n\n" +
                 "Transcription: " + transcription + "\n\n" +
                 "Russian translations: " + R_T + "\n";
-
-
     }
+
+
 }

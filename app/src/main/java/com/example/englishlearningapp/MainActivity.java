@@ -60,15 +60,13 @@ public class MainActivity extends AppCompatActivity {
                     words.add(word_.getEn());
                     wordsObj_s.add(word_);
                 }
+
         } else if (isRus(word)) {
             for (Word word_ : D_B)
                 for (String russian : word_.getRusTranslations())
-                    if (word_.getRus().contains(word)) {
-                        if (!wordsObj_s.contains(word_)) {
-                            words.add(word_.getRus());
-                            wordsObj_s.add(word_);
-                        }
-                        break;
+                    if (russian.contains(word)) {
+                        words.add(russian);
+                        wordsObj_s.add(word_);
                     }
         }
         if (wordsObj_s.isEmpty()) exceptionAlert("Unknown word :(");
@@ -95,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    //some
 
     public void exceptionAlert(String alert) { // "alert" will be contain alert message
         Toast.makeText(MainActivity.this,
