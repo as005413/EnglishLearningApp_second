@@ -9,7 +9,11 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import entities.Word;
 import entities.Data_base;
@@ -30,26 +34,39 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        EditText wordObj = (EditText) findViewById(R.id.editText2);
-        Switch ru_en = (Switch) findViewById(R.id.switch1);
-        TextView translation = (TextView) findViewById(R.id.textView);
+        EditText wordObj = findViewById(R.id.editText2);
+        TextView translation = findViewById(R.id.textView);
+        TextView transcription = findViewById(R.id.textView2);
+
+        transcription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
 
         String word = wordObj.getText().toString();
+        word = word.toLowerCase();
+        word = word.trim();
         ArrayList<Word> D_B = getDataBase();
 
-        if (ru_en.isChecked()) { //Now we get english variant
+        if (isEn(word)) { //Now we get english variant
             for (Word word_ : D_B) {
                 if (word_.getEn().equals(word)) {
+                    translation.setTextSize(18f);
                     translation.setText(word_.getRus());
+                    transcription.setText(word_.getTranscription());
                     return;
                 }
             }
-//TODO При вводе английского слова при русском Switch и наоборот автопереключатель свитча и фикс регистра букв
-        } else if (!ru_en.isChecked()) {
+        } else if (isRus(word)) {
             for (Word word_ : D_B) {
                 for (String russian : word_.getRusTranslations()) {
                     if (russian.equals(word)) {
+                        translation.setTextSize(18f);
                         translation.setText(word_.getEn());
+                        transcription.setText(word_.getTranscription());
                         return;
                     }
                 }
@@ -64,4 +81,18 @@ public class MainActivity extends AppCompatActivity {
                 Toast.LENGTH_SHORT)
                 .show();
     }
+
+    public boolean isEn(String word){
+        Pattern p = Pattern.compile("[a-z]");
+        Matcher m = p.matcher(word);
+        return m.find();
+    }
+
+    public boolean isRus(String word){
+        Pattern p = Pattern.compile("[а-я]");
+        Matcher m = p.matcher(word);
+        return m.find();
+
+    }
 }
+
