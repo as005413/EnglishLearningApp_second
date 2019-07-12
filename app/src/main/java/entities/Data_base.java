@@ -68,14 +68,15 @@ public class Data_base {
     private String createRusWord(String where, String rus) {
         for (int i = 0; i < where.length(); i++) {
             if ((int) where.charAt(i) >= 'а' && where.charAt(i) <= 'я' ||
-                    where.charAt(i) == ',' ||
-                    where.charAt(i) == '(' || where.charAt(i) == ')') {
+                    where.charAt(i) == ','
+                   // || where.charAt(i) == '(' || where.charAt(i) == ')'
+            ) {
                 rus += where.charAt(i);
             }
             else if(where.charAt(i) == ' ' && where.charAt(i+1) >= 'а' && where.charAt(i+1) <= 'я' &&
-                    where.charAt(i-1) >= 'а' && where.charAt(i-1) <= 'я' ){
-                rus+=' ';
-            }
+                    where.charAt(i-1) >= 'а' && where.charAt(i-1) <= 'я' ) rus+=' ';
+
+            else if(where.charAt(i) == ' ' && where.charAt(i+1) == '(') rus+=' ';
         }
         return rus;
     }

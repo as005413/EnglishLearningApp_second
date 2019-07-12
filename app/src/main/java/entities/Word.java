@@ -49,4 +49,18 @@ public class Word {
     public String getRus() {
         return rus;
     }
+
+    @Override
+    public String toString() {
+        String R_T = "";
+        for (String rus : rusTranslations) R_T+=rus+", ";
+        R_T = R_T.substring(0,R_T.length()-2);
+
+        return
+                "English variant: " + en + "\n\n" +
+                "Transcription: " + transcription + "\n\n" +
+                "Russian translations: " + R_T + "\n";
+
+
+    }
 }

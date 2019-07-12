@@ -22,16 +22,16 @@
 22 	access 	[ˈæksɛs] 	доступ
 23 	accessory 	[əkˈsɛsəri] 	принадлежность, аксессуар
 24 	accident 	[ˈæksɪdənt] 	случайность
-25 	accident 	[ˈæksɪdənt] 	происшествие, напр. ДТП
+25 	accident 	[ˈæksɪdənt] 	происшествие, например ДТП
 26 	acclaim 	[əˈkleɪm] 	приветствовать, аплодировать
 27 	accommodate 	[əˈkɒmədeɪt] 	размещать, вмещать
 28 	accompany 	[əˈkʌmpəni] 	сопровождать
 29 	accomplish 	[əˈkɒmplɪʃ] 	выполнить, завершить
 30 	accord 	[əˈkɔːd] 	согласие
 31 	according to 	[əˈkɔːdɪŋtuː] 	в соответствии
-32 	account 	[əˈkaʊnt] 	счёт (в банке)
-33 	account 	[əˈkaʊnt] 	отчёт
-34 	account for 	[əˈkaʊntfɔː] 	объяснить (произошедшее)
+32 	account 	[əˈkaʊnt] 	счет (в банке)
+33 	account 	[əˈkaʊnt] 	отчет
+34 	account for 	[əˈkaʊntfɔː] 	объяснить произошедшее
 35 	accurate 	[ˈækjʊrɪt] 	точный
 36 	accuse 	[əˈkjuːz] 	обвинять
 37 	accustom 	[əˈkʌstəm] 	приучить
@@ -41,7 +41,7 @@
 41 	acknowledge 	[əkˈnɒlɪʤ] 	признавать, подтверждать
 42 	acquaint 	[əˈkweɪnt] 	знакомить
 43 	acquire 	[əˈkwaɪə] 	обретать
-44 	acquit 	[əˈkwɪt] 	оправдать (в суде)
+44 	acquit 	[əˈkwɪt] 	оправдать в суде
 45 	across 	[əˈkrɒs] 	за, через
 46 	act 	[ækt] 	действовать
 47 	act on 	[æktɒn] 	действовать в соответствии
