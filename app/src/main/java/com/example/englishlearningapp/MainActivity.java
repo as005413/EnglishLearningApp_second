@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    //some
 
     public void exceptionAlert(String alert) { // "alert" will be contain alert message
         Toast.makeText(MainActivity.this,
