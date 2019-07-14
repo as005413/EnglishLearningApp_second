@@ -4,17 +4,23 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
+import entities.Card;
 import entities.Word;
 import entities.Database;
 import languages.ChooseLanguage;
@@ -26,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Database db = Database.getInstance();
     private ArrayList<String> words;
-    private ArrayList<Word> wordsObj_s;
+    private List<Word> wordsObj_s;
     private ListView listView;
     private EditText wordObj;
     private ChooseLanguage chooseLanguage;
@@ -54,8 +60,10 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
         String word = wordObj.getText().toString();
         word = validString(word);
+
         ArrayList<Word> D_B = getDataBase();
-        words = new ArrayList<>();
+        final ArrayList<Card> cards = new ArrayList<>();
+
         wordsObj_s = new ArrayList<>();
         listView = createListView(new ArrayList<String>());
 
@@ -69,33 +77,41 @@ public class MainActivity extends AppCompatActivity {
         switch (language) {
             case ENGLISH:
                 for (Word word_ : D_B)
-                    if (word_.getEn().startsWith(word)) {
-                        words.add(word_.getEn());
-                        wordsObj_s.add(word_);
+                    if (word_.getEn().equals(word)) {
+                        for (String rusTranslation : word_.getRusTranslations())
+                            cards.add(new Card(
+                                    firstLetterToUpperCase(word_.getEn()),
+                                    firstLetterToUpperCase(rusTranslation),
+                                    word_.getTranscription()));
                     }
                 break;
+
             case RUSSIAN:
                 for (Word word_ : D_B)
                     for (String russian : word_.getRusTranslations())
-                        if (russian.startsWith(word)) {
-                            words.add(russian);
-                            wordsObj_s.add(word_);
-                        }
+                        if (russian.equals(word))
+                            cards.add(new Card(
+                                    firstLetterToUpperCase(russian),
+                                    firstLetterToUpperCase(word_.getEn()),
+                                    word_.getTranscription()));
                 break;
         }
 
-        if (wordsObj_s.isEmpty()) exceptionAlert("Unknown word :(");
+        words = new ArrayList<>();
+        for (Card card : cards)
+            words.add(card.getTranslation());
+
+
+        if (cards.isEmpty()) exceptionAlert("Unknown word :(");
         else listView = createListView(words);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                String title = wordsObj_s.get(position).getEn();
-                title = (char) (title.charAt(0) - 32) + title.substring(1);
-
+               /* AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                String title = cards.get(position).getWord();
                 builder.setTitle(title)
-                        .setMessage(wordsObj_s.get(position).toString())
+                        .setMessage(cards.get(position).toString())
                         .setCancelable(false)
                         .setNegativeButton("Clear!", new DialogInterface.OnClickListener() {
                             @Override
@@ -104,7 +120,14 @@ public class MainActivity extends AppCompatActivity {
                             }
                         });
                 AlertDialog alert = builder.create();
-                alert.show();
+                alert.show();*/
+
+                String title = cards.get(position).getWord();
+
+                Intent intent = new Intent(MainActivity.this, CardShowActivity.class);
+                intent.putExtra("title",title);
+                intent.putExtra("word",cards.get(position).toString());
+                startActivity(intent);
             }
         });
     }
@@ -124,10 +147,16 @@ public class MainActivity extends AppCompatActivity {
         return listView;
     }
 
-    private String validString(String str) {
+    private String validString(@NotNull String str) {
+        if (str == null || str.isEmpty()) return str;
         str = str.trim();
         str = str.toLowerCase();
         return str;
+    }
+
+    private String firstLetterToUpperCase(@NotNull String str) {
+        if (str == null || str.isEmpty()) return str;
+        return (char) (str.charAt(0) - 32) + str.substring(1);
     }
 }
 

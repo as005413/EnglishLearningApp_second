@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">AvEng</string>
-    <string name="hint_for_entering">Some word</string>
+    <string name="hint_for_entering">Search</string>
     <string name="hint_for_translation"> Translation</string>
     <string name="hint_for_transcription"> Transcription</string>
     <string name="text_for_translate_button">T</string>
