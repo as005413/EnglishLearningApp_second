@@ -1,14 +1,14 @@
 package entities;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Word {
     private String en;
     private String rus;
     private String transcription;
-    private ArrayList<String> rusTranslations;
+    private List<String> rusTranslations;
 
-    public Word(String en, String rus, String transcription, ArrayList<String> rusTranslations) {
+    public Word(String en, String rus, String transcription, List<String> rusTranslations) {
         this.en = en;
         this.rus = rus;
         this.transcription = transcription;
@@ -18,11 +18,11 @@ public class Word {
     public Word() {
     }
 
-    public ArrayList<String> getRusTranslations() {
+    public List<String> getRusTranslations() {
         return rusTranslations;
     }
 
-    public void addToRusTranslations(String rusWord){
+    public void addToRusTranslations(String rusWord) {
         rusTranslations.add(rusWord);
     }
 
@@ -53,13 +53,13 @@ public class Word {
     @Override
     public String toString() {
         String R_T = "";
-        for (String rus : rusTranslations) R_T+=rus+", ";
-        R_T = R_T.substring(0,R_T.length()-2);
+        for (String rus : rusTranslations) R_T += rus + ", ";
+        R_T = R_T.substring(0, R_T.length() - 2);
 
         return
                 "English variant: " + en + "\n\n" +
-                "Transcription: " + transcription + "\n\n" +
-                "Russian translations: " + R_T + "\n";
+                        "Transcription: " + transcription + "\n\n" +
+                        "Russian translations: " + R_T + "\n";
     }
 
 
