@@ -13,11 +13,14 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import entities.Word;
 import entities.Database;
+import languages.ChooseLanguage;
+import languages.ELanguages;
+import languages.Language;
+import languages.UnvalidatedLanguage;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,14 +28,23 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> words;
     private ArrayList<Word> wordsObj_s;
     private ListView listView;
+    private EditText wordObj;
+    private ChooseLanguage chooseLanguage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if(db.getData_base().isEmpty()) //This command fixed bug with stacking database
-        db.createDB(this);
+        chooseLanguage = new ChooseLanguage();
+        chooseLanguage.createLanguageList(
+                new Language(ELanguages.ENGLISH, Pattern.compile("[a-z]")),
+                new Language(ELanguages.RUSSIAN, Pattern.compile("[а-яё]"))
+        );
+
+        wordObj = findViewById(R.id.editText2);
+        if (db.getData_base().isEmpty()) //This command fixed bug with stacking database
+            db.createDB(this);
     }
 
     public ArrayList<Word> getDataBase() {
@@ -40,8 +52,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        EditText wordObj = findViewById(R.id.editText2);
-
         String word = wordObj.getText().toString();
         word = validString(word);
         ArrayList<Word> D_B = getDataBase();
@@ -49,20 +59,29 @@ public class MainActivity extends AppCompatActivity {
         wordsObj_s = new ArrayList<>();
         listView = createListView(new ArrayList<String>());
 
-        if (isEn(word)) {
-            for (Word word_ : D_B)
-                if (word_.getEn().startsWith(word)) {
-                    words.add(word_.getEn());
-                    wordsObj_s.add(word_);
-                }
+        ELanguages language = null;
+        try {
+            language = chooseLanguage.defineLanguage(word);
+        } catch (UnvalidatedLanguage unvalidatedLanguage) {
+            unvalidatedLanguage.printStackTrace();
+        }
 
-        } else if (isRus(word)) {
-            for (Word word_ : D_B)
-                for (String russian : word_.getRusTranslations())
-                    if (russian.startsWith(word)) {
-                        words.add(russian);
+        switch (language) {
+            case ENGLISH:
+                for (Word word_ : D_B)
+                    if (word_.getEn().startsWith(word)) {
+                        words.add(word_.getEn());
                         wordsObj_s.add(word_);
                     }
+                break;
+            case RUSSIAN:
+                for (Word word_ : D_B)
+                    for (String russian : word_.getRusTranslations())
+                        if (russian.startsWith(word)) {
+                            words.add(russian);
+                            wordsObj_s.add(word_);
+                        }
+                break;
         }
 
         if (wordsObj_s.isEmpty()) exceptionAlert("Unknown word :(");
@@ -95,19 +114,6 @@ public class MainActivity extends AppCompatActivity {
                 alert,
                 Toast.LENGTH_SHORT)
                 .show();
-    }
-
-    public boolean isEn(String word) {
-        Pattern p = Pattern.compile("[a-z]");
-        Matcher m = p.matcher(word);
-        return m.find();
-    }
-
-    public boolean isRus(String word) {
-        Pattern p = Pattern.compile("[а-я]");
-        Matcher m = p.matcher(word);
-        return m.find();
-
     }
 
     public ListView createListView(ArrayList<String> words) {
