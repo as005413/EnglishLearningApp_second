@@ -42,11 +42,11 @@ public class Database {
 
                 transcription = createTranscription(oneWord);
                 en = createEnWord(oneWord, en);
-                rus = createRusWord(oneWord, rus);
+                rus = createRusWord(oneWord,rus);
                 rusTranslations = createSomeRussianTranslations(rus);
 
 
-                Word word = new Word(en, rus, transcription, rusTranslations);
+                Word word = new Word(en, transcription, rusTranslations);
                 data_base.add(word);
             }
 
@@ -62,9 +62,7 @@ public class Database {
     private String createRusWord(String where, String rus) {
         for (int i = 0; i < where.length(); i++) {
             if ((int) where.charAt(i) >= 'а' && where.charAt(i) <= 'я' ||
-                    where.charAt(i) == ','
-                // || where.charAt(i) == '(' || where.charAt(i) == ')'
-            ) {
+                    where.charAt(i) == ',') {
                 rus += where.charAt(i);
             } else if (where.charAt(i) == ' ' && where.charAt(i + 1) >= 'а' && where.charAt(i + 1) <= 'я' &&
                     where.charAt(i - 1) >= 'а' && where.charAt(i - 1) <= 'я') rus += ' ';

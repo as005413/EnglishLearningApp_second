@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
     private Database db = Database.getInstance();
     private ArrayList<String> words;
-    private List<Word> wordsObj_s;
     private ListView listView;
     private EditText wordObj;
     private ChooseLanguage chooseLanguage;
+    private ArrayList<Card> cards;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +62,8 @@ public class MainActivity extends AppCompatActivity {
         word = validString(word);
 
         ArrayList<Word> D_B = getDataBase();
-        final ArrayList<Card> cards = new ArrayList<>();
-
-        wordsObj_s = new ArrayList<>();
+        words = new ArrayList<>();
+        cards = new ArrayList<>();
         listView = createListView(new ArrayList<String>());
 
         ELanguages language = null;
@@ -75,18 +74,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         switch (language) {
-            case ENGLISH:
+            case ENGLISH: {
                 for (Word word_ : D_B)
-                    if (word_.getEn().equals(word)) {
-                        for (String rusTranslation : word_.getRusTranslations())
+                    for (String russian : word_.getRusTranslations())
+                        if (word_.getEn().equals(word))
                             cards.add(new Card(
                                     firstLetterToUpperCase(word_.getEn()),
-                                    firstLetterToUpperCase(rusTranslation),
+                                    firstLetterToUpperCase(russian),
                                     word_.getTranscription()));
-                    }
                 break;
-
-            case RUSSIAN:
+            }
+            case RUSSIAN: {
                 for (Word word_ : D_B)
                     for (String russian : word_.getRusTranslations())
                         if (russian.equals(word))
@@ -95,9 +93,10 @@ public class MainActivity extends AppCompatActivity {
                                     firstLetterToUpperCase(word_.getEn()),
                                     word_.getTranscription()));
                 break;
+            }
         }
 
-        words = new ArrayList<>();
+
         for (Card card : cards)
             words.add(card.getTranslation());
 
@@ -108,25 +107,10 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-               /* AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 String title = cards.get(position).getWord();
-                builder.setTitle(title)
-                        .setMessage(cards.get(position).toString())
-                        .setCancelable(false)
-                        .setNegativeButton("Clear!", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.cancel();
-                            }
-                        });
-                AlertDialog alert = builder.create();
-                alert.show();*/
-
-                String title = cards.get(position).getWord();
-
                 Intent intent = new Intent(MainActivity.this, CardShowActivity.class);
-                intent.putExtra("title",title);
-                intent.putExtra("word",cards.get(position).toString());
+                intent.putExtra("title", title);
+                intent.putExtra("word", cards.get(position).toString());
                 startActivity(intent);
             }
         });

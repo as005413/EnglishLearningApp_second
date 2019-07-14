@@ -13,11 +13,14 @@ public class CardShowActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_show);
+        showCard();
+    }
 
-        Intent mainActiviryIntent = getIntent();
+    public void showCard(){
+        Intent mainActivityIntent = getIntent();
         head = findViewById(R.id.textViewHead);
         word = findViewById(R.id.textViewWord);
-        head.setText(mainActiviryIntent.getStringExtra("title"));
-        word.setText(mainActiviryIntent.getStringExtra("word"));
+        head.setText(mainActivityIntent.getStringExtra("title"));
+        word.setText(mainActivityIntent.getStringExtra("word"));
     }
 }

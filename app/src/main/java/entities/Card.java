@@ -22,7 +22,7 @@ public class Card {
     @Override
     public String toString() {
         return "Translation: " + translation
-                + "\n" + "Transcription: " + transcription
-                + "\n";
+                + "\n\n" + "Transcription: " + transcription
+                + "\n\n";
     }
 }
