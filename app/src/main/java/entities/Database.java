@@ -3,6 +3,8 @@ package entities;
 import android.content.Context;
 import android.content.res.AssetManager;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -59,7 +61,7 @@ public class Database {
         }
     }
 
-    private String createRusWord(String where, String rus) {
+    private String createRusWord(@NotNull String where, String rus) {
         for (int i = 0; i < where.length(); i++) {
             if ((int) where.charAt(i) >= 'а' && where.charAt(i) <= 'я' ||
                     where.charAt(i) == ',') {
@@ -72,7 +74,7 @@ public class Database {
         return rus;
     }
 
-    private String createEnWord(String where, String en) {
+    private String createEnWord(@NotNull String where, String en) {
         int numberOfStart = 0;
         for (int i = 0; i < where.length(); i++) {
             if ((int) where.charAt(i) >= 97 &&
@@ -112,7 +114,8 @@ public class Database {
         return rusTranslations;
     }
 
-    private String createTranscription(String where) {
+    @NotNull
+    private String createTranscription(@NotNull String where) {
         return where.substring(where.indexOf('['), where.indexOf(']') + 1);
     }
 

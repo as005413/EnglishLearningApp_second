@@ -1,23 +1,24 @@
 package com.example.englishlearningapp;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Pattern;
 
 import entities.Card;
@@ -48,10 +49,24 @@ public class MainActivity extends AppCompatActivity {
                 new Language(ELanguages.RUSSIAN, Pattern.compile("[а-яё]"))
         );
 
+        if(savedInstanceState != null) {
+            words = savedInstanceState.getStringArrayList("words");
+            cards = savedInstanceState.getParcelableArrayList("cards");
+            listView = createListView(words);
+            onListViewClick();
+        }
         wordObj = findViewById(R.id.editText2);
         if (db.getData_base().isEmpty()) //This command fixed bug with stacking database
             db.createDB(this);
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putStringArrayList("words",words);
+        outState.putParcelableArrayList("cards", cards);
+    }
+
 
     public ArrayList<Word> getDataBase() {
         return db.getData_base();
@@ -66,12 +81,7 @@ public class MainActivity extends AppCompatActivity {
         cards = new ArrayList<>();
         listView = createListView(new ArrayList<String>());
 
-        ELanguages language = null;
-        try {
-            language = chooseLanguage.defineLanguage(word);
-        } catch (UnvalidatedLanguage unvalidatedLanguage) {
-            unvalidatedLanguage.printStackTrace();
-        }
+        ELanguages language = defineLanguage(word);
 
         switch (language) {
             case ENGLISH: {
@@ -96,14 +106,26 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-
         for (Card card : cards)
             words.add(card.getTranslation());
 
 
         if (cards.isEmpty()) exceptionAlert("Unknown word :(");
         else listView = createListView(words);
+        onListViewClick();
+    }
 
+    private ELanguages defineLanguage(String word){
+        ELanguages language = null;
+        try {
+            language = chooseLanguage.defineLanguage(word);
+        } catch (UnvalidatedLanguage unvalidatedLanguage) {
+            unvalidatedLanguage.printStackTrace();
+        }
+        return language;
+    }
+
+    private void onListViewClick(){
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -123,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    public ListView createListView(ArrayList<String> words) {
+    private ListView createListView(ArrayList<String> words) {
         ListView listView = findViewById(R.id.listView);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, words);

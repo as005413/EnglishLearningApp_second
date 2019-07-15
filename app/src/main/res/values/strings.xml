@@ -4,4 +4,5 @@
     <string name="hint_for_translation"> Translation</string>
     <string name="hint_for_transcription"> Transcription</string>
     <string name="text_for_translate_button">T</string>
+    <string name="fisherman">fisherman</string>
 </resources>
