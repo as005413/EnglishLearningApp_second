@@ -1,16 +1,25 @@
- <shape xmlns:android="http://schemas.android.com/apk/res/android"
-        android:thickness="0dp"
-        android:shape="rectangle">
-        <stroke android:width="3dp"
-            android:color="#000000" />
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#ff2d55" />
+    <corners
+        android:radius="0dp"
+        android:topRightRadius="0dp"
+        />
 
-        <gradient
-            android:startColor="#FFFFFF"
-            android:endColor="#FFFFFF"
-            android:type="linear"
-            android:angle="270"/>
-     <padding android:left="1dp" android:top="1dp" android:right="1dp"
-         android:bottom="1dp" />
-    </shape>
+    <gradient
+        android:angle="45"
+        android:endColor="#01f1fa"
+        android:gradientRadius="3dp"
+        android:startColor="#0189ff"
+        android:type="linear" />
+
+    <!--If your shape requires only one solid color-->
+    <!--<solid
+        android:color="#FFFFFF" />-->
+
+
+    <size
+        android:width="52dp"
+        android:height="18dp" />
+</shape>
 
 

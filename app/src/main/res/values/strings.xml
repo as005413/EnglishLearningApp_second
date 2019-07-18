@@ -6,4 +6,5 @@
     <string name="text_for_translate_button">T</string>
     <string name="fisherman">fisherman</string>
     <string name="soundBtn">Sound</string>
+    <string name="show_translation">Show translation</string>
 </resources>

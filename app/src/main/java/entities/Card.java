@@ -40,11 +40,10 @@ public class Card implements Parcelable {
         return translation;
     }
 
+    public String getTranscription() {return transcription;}
     @Override
     public String toString() {
-        return "Translation: " + translation
-                + "\n\n" + "Transcription: " + transcription
-                + "\n\n";
+        return translation + "\n" + transcription;
     }
 
     @Override

@@ -130,9 +130,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String title = cards.get(position).getWord();
+                String translation = cards.get(position).getTranslation();
+                String transcription = cards.get(position).getTranscription();
                 Intent intent = new Intent(MainActivity.this, CardShowActivity.class);
                 intent.putExtra("title", title);
                 intent.putExtra("word", cards.get(position).toString());
+                intent.putExtra("translation", translation);
+                intent.putExtra("transcription", transcription);
                 startActivity(intent);
             }
         });
