@@ -14,6 +14,7 @@ import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.ContextThemeWrapper;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -33,6 +34,7 @@ public class CardShowActivity extends AppCompatActivity {
     private Button translateBtn;
 
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -78,73 +80,67 @@ public class CardShowActivity extends AppCompatActivity {
 
         head.setText(title);
 
-        this.word.setTextSize(24f);
+       // this.word.setTextSize(24f);
         this.word.setText(mainActivityIntent.getStringExtra("transcription"));
 
-        definition.setTextSize(24f);
-        String def = "a [person] [who] [catches] [fish] as a job or as a [hobby].";
+       // definition.setTextSize(24f);
+        String def = "a \0person \0who \0catches \0fish as a job or as a \0hobby .";
         definition.setMovementMethod(LinkMovementMethod.getInstance());
-        definition.setText(addClikablePart(def),TextView.BufferType.SPANNABLE);
+        definition.setText(addClikablePart(def), TextView.BufferType.SPANNABLE);
 
-        //definition.setText("a person who catches fish as a job or as a hobby.");
         definition.setVisibility(View.VISIBLE);
         String exampls = "Examples:<br>A giant squid shocked the <b><u>fisherman</u></b> who caught it in " +
                 "his net off the coast of Vancouver Island." +
                 "<br>At the time these <b><u>fisherman</u></b> were going out sports " +
                 "fishing with hand lines.<br>" +
                 "After more than one hour the fish and the <b><u>fisherman</u></b> was tired.";
-//        examples.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                showPopupMenu(view);
-//            }
-//        }
-        //);
+
         examples.setText(Html.fromHtml(exampls));
-        examples.setTextSize(18f);
+      //  examples.setTextSize(18f);
         examples.setVisibility(View.VISIBLE);
         translateBtn.setVisibility(View.VISIBLE);
+        imageView.setVisibility(View.VISIBLE);
     }
 
     private SpannableStringBuilder addClikablePart(final String def) {
         SpannableStringBuilder ssb = new SpannableStringBuilder(def);
-        int idx1 = def.indexOf("[");
+        int idx1 = def.indexOf("\0");
         int idx2;
         while (idx1 != -1) {
-            idx2 = def.indexOf("]", idx1) + 1;
+            idx2 = def.indexOf(" ", idx1) + 1;
             final String clickString = def.substring(idx1, idx2);
             ssb.setSpan(new ClickableSpan() {
                 @Override
                 public void onClick(View widget) {
                     String popupTran;
-                    switch (clickString){
-                        case "[person]" :
-                                popupTran = "человек";
-                                break;
-                        case "[who]":
-                            popupTran = "кто";
+                    switch (clickString) {
+                        case "\0person ":
+                            popupTran = "Человек";
                             break;
-                        case "[catches]":
-                            popupTran = "ловит";
+                        case "\0who ":
+                            popupTran = "Кто";
                             break;
-                        case "[fish]":
-                            popupTran = "рыба";
+                        case "\0catches ":
+                            popupTran = "Ловит";
                             break;
-                        case "[hobby]":
-                            popupTran = "хобби";
+                        case "\0fish ":
+                            popupTran = "Рыба";
                             break;
-                            default:
-                                popupTran = "something wrong!";
+                        case "\0hobby ":
+                            popupTran = "Хобби";
+                            break;
+                        default:
+                            popupTran = "Something wrong!";
                     }
-                   showPopupMenu(widget ,popupTran);
+                    Toast.makeText(getApplicationContext(),popupTran,Toast.LENGTH_LONG).show();
                 }
 
                 @Override
-                public void updateDrawState(TextPaint textPaint){
-                    textPaint.setColor(getResources().getColor(R.color.grey_line));
+                public void updateDrawState(TextPaint textPaint) {
+                    textPaint.setColor(getResources().getColor(R.color.green));
                 }
             }, idx1, idx2, 0);
-            idx1 = def.indexOf("[", idx2);
+            idx1 = def.indexOf("\0", idx2);
         }
         return ssb;
     }
@@ -162,6 +158,7 @@ public class CardShowActivity extends AppCompatActivity {
         PopupMenu popupMenu = new PopupMenu(wrapper, view);
         popupMenu.inflate(R.menu.popupmenu);
         popupMenu.getMenu().add(1, R.id.menugroup1, 1, str);
+        popupMenu.setGravity(Gravity.CENTER_HORIZONTAL);
         popupMenu.show();
     }
 
@@ -169,8 +166,9 @@ public class CardShowActivity extends AppCompatActivity {
     public void onClickShowTranslation(View view) {
         String btnText = translateBtn.getText().toString();
 
-        if(btnText.equals("Show translation"))
-        translateBtn.setText(mainActivityIntent.getStringExtra("translation"));
+        if (btnText.equals("Show translation"))
+            translateBtn.setText(mainActivityIntent.getStringExtra("translation"));
         else translateBtn.setText("Show translation");
     }
+
 }

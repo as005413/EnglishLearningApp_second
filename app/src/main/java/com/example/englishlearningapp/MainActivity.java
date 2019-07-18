@@ -21,6 +21,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
+import designSolutions.CustomAdapter;
 import entities.Card;
 import entities.Word;
 import entities.Database;
@@ -32,11 +33,11 @@ import languages.UnvalidatedLanguage;
 public class MainActivity extends AppCompatActivity {
 
     private Database db = Database.getInstance();
-    private ArrayList<String> words;
     private ListView listView;
     private EditText wordObj;
     private ChooseLanguage chooseLanguage;
     private ArrayList<Card> cards;
+    private static CustomAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +50,9 @@ public class MainActivity extends AppCompatActivity {
                 new Language(ELanguages.RUSSIAN, Pattern.compile("[а-яё]"))
         );
 
-        if(savedInstanceState != null) {
-            words = savedInstanceState.getStringArrayList("words");
+        if (savedInstanceState != null) {
             cards = savedInstanceState.getParcelableArrayList("cards");
-            listView = createListView(words);
+            listView = createListView();
             onListViewClick();
         }
         wordObj = findViewById(R.id.editText2);
@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putStringArrayList("words",words);
         outState.putParcelableArrayList("cards", cards);
     }
 
@@ -71,15 +70,16 @@ public class MainActivity extends AppCompatActivity {
     public ArrayList<Word> getDataBase() {
         return db.getData_base();
     }
-
+//TODO Отловить NPE
     public void onClick(View view) {
+
         String word = wordObj.getText().toString();
+
         word = validString(word);
 
         ArrayList<Word> D_B = getDataBase();
-        words = new ArrayList<>();
         cards = new ArrayList<>();
-        listView = createListView(new ArrayList<String>());
+        listView = createListView();
 
         ELanguages language = defineLanguage(word);
 
@@ -106,16 +106,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        for (Card card : cards)
-            words.add(card.getTranslation());
-
 
         if (cards.isEmpty()) exceptionAlert("Unknown word :(");
-        else listView = createListView(words);
+        else listView = createListView();
         onListViewClick();
     }
 
-    private ELanguages defineLanguage(String word){
+    private ELanguages defineLanguage(String word) {
         ELanguages language = null;
         try {
             language = chooseLanguage.defineLanguage(word);
@@ -125,7 +122,8 @@ public class MainActivity extends AppCompatActivity {
         return language;
     }
 
-    private void onListViewClick(){
+    private void onListViewClick() {
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -149,10 +147,9 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    private ListView createListView(ArrayList<String> words) {
+    private ListView createListView() {
         ListView listView = findViewById(R.id.listView);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, words);
+        adapter = new CustomAdapter(cards, getApplicationContext());
         listView.setAdapter(adapter);
         return listView;
     }
