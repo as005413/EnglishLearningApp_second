@@ -81,7 +81,7 @@ public class CardShowActivity extends AppCompatActivity {
         head.setText(title);
 
         this.word.setText(mainActivityIntent.getStringExtra("transcription"));
-        String def = "a \0person \0who \0catches \0fish as a job or as a \0hobby .";
+        String def = "a \0person \0who \0catches \0fish as a job or as a \0hobby ";
         definition.setMovementMethod(LinkMovementMethod.getInstance());
         definition.setText(addClikablePart(def), TextView.BufferType.SPANNABLE);
 
