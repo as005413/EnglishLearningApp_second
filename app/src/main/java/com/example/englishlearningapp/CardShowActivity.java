@@ -86,7 +86,7 @@ public class CardShowActivity extends AppCompatActivity {
         definition.setText(addClikablePart(def), TextView.BufferType.SPANNABLE);
 
         definition.setVisibility(View.VISIBLE);
-        String exampls = "Examples:<br>A giant squid shocked the <b><u>fisherman</u></b> who caught it in " +
+        String exampls = "Examples:<br>A giant squid shocked the <b><u><pre  style=\"color:#F7FE00\">fisherman</u></b></pre> who caught it in " +
                 "his net off the coast of Vancouver Island." +
                 "<br>At the time these <b><u>fisherman</u></b> were going out sports " +
                 "fishing with hand lines.<br>" +
@@ -133,7 +133,7 @@ public class CardShowActivity extends AppCompatActivity {
 
                 @Override
                 public void updateDrawState(TextPaint textPaint) {
-                    textPaint.setColor(getResources().getColor(R.color.green));
+                    textPaint.setColor(getResources().getColor(R.color.white));
                 }
             }, idx1, idx2, 0);
             idx1 = def.indexOf("\0", idx2);

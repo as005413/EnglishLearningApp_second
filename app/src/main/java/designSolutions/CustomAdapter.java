@@ -77,7 +77,7 @@ public class CustomAdapter extends ArrayAdapter<Card> {
             String versionToString = version.toString();
             def = "Frequency of use: ".concat(versionToString);
         }
-        
+
         viewHolder.txtName.setText(title);
         viewHolder.txtType.setText(def);
         return convertView;

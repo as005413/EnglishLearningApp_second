@@ -11,10 +11,14 @@
 
     <style name="PopupMenu" parent="@android:style/Widget.PopupMenu">
         <item name="android:itemBackground">#ffffff</item>
-        <item name="android:background">@drawable/edit_text_border</item>
+        <item name="android:background">@drawable/card_liner_layout</item>
         <!--<item name="android:backgroundTint">#00000000 </item>-->
         <item name="android:dropDownHorizontalOffset">24dp</item>
         <item name="android:dropDownVerticalOffset">24dp</item>
+    </style>
+
+    <style name="scroll_view">
+        <item name="android:background">@drawable/card_liner_layout</item>
     </style>
 
 </resources>
