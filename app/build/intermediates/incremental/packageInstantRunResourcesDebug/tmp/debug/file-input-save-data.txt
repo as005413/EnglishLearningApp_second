@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Sat Jul 13 00:01:57 MSK 2019
+0.baseType=DIRECTORY
+0.base=C\:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\merged_assets\\debug\\out
+0.path=data_base.txt
+0.set=ASSET
+count=1

@@ -80,10 +80,7 @@ public class CardShowActivity extends AppCompatActivity {
 
         head.setText(title);
 
-       // this.word.setTextSize(24f);
         this.word.setText(mainActivityIntent.getStringExtra("transcription"));
-
-       // definition.setTextSize(24f);
         String def = "a \0person \0who \0catches \0fish as a job or as a \0hobby .";
         definition.setMovementMethod(LinkMovementMethod.getInstance());
         definition.setText(addClikablePart(def), TextView.BufferType.SPANNABLE);
@@ -96,7 +93,6 @@ public class CardShowActivity extends AppCompatActivity {
                 "After more than one hour the fish and the <b><u>fisherman</u></b> was tired.";
 
         examples.setText(Html.fromHtml(exampls));
-      //  examples.setTextSize(18f);
         examples.setVisibility(View.VISIBLE);
         translateBtn.setVisibility(View.VISIBLE);
         imageView.setVisibility(View.VISIBLE);
@@ -153,14 +149,14 @@ public class CardShowActivity extends AppCompatActivity {
         mediaPlayer.start();
     }
 
-    private void showPopupMenu(View view, String str) {
-        Context wrapper = new ContextThemeWrapper(this, R.style.PopupMenu);
-        PopupMenu popupMenu = new PopupMenu(wrapper, view);
-        popupMenu.inflate(R.menu.popupmenu);
-        popupMenu.getMenu().add(1, R.id.menugroup1, 1, str);
-        popupMenu.setGravity(Gravity.CENTER_HORIZONTAL);
-        popupMenu.show();
-    }
+//    private void showPopupMenu(View view, String str) {
+//        Context wrapper = new ContextThemeWrapper(this, R.style.PopupMenu);
+//        PopupMenu popupMenu = new PopupMenu(wrapper, view);
+//        popupMenu.inflate(R.menu.popupmenu);
+//        popupMenu.getMenu().add(1, R.id.menugroup1, 1, str);
+//        popupMenu.setGravity(Gravity.CENTER_HORIZONTAL);
+//        popupMenu.show();
+//    }
 
     @SuppressLint("SetTextI18n")
     public void onClickShowTranslation(View view) {

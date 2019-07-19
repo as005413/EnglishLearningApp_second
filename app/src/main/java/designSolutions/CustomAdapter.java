@@ -63,11 +63,23 @@ public class CustomAdapter extends ArrayAdapter<Card> {
         result.startAnimation(animation);
         lastPosition = position;
 
-        Random random = new Random();
-        Integer version = random.nextInt() % 3 + 2;
-        String versionToString = version.toString();
-        viewHolder.txtName.setText(dataModel.getTranslation());
-        viewHolder.txtType.setText("Frequency of use: " + versionToString);
+        String title;
+        String def;
+
+        if (dataModel.getWord().equals("Fisherman")){
+            title = dataModel.getWord();
+            def = "a person who catches fish as a job or as a hobby.";
+        }
+        else {
+            title = dataModel.getTranslation();
+            Random random = new Random();
+            Integer version = random.nextInt() % 3 + 2;
+            String versionToString = version.toString();
+            def = "Frequency of use: ".concat(versionToString);
+        }
+        
+        viewHolder.txtName.setText(title);
+        viewHolder.txtType.setText(def);
         return convertView;
     }
 }
