@@ -133,7 +133,7 @@ public class CardShowActivity extends AppCompatActivity {
 
                 @Override
                 public void updateDrawState(TextPaint textPaint) {
-                    textPaint.setColor(getResources().getColor(R.color.white));
+                    textPaint.setColor(getResources().getColor(R.color.smoke_grey));
                 }
             }, idx1, idx2, 0);
             idx1 = def.indexOf("\0", idx2);
