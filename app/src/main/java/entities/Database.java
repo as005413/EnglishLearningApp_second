@@ -2,6 +2,8 @@ package entities;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -12,10 +14,29 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class Database {
+import languages.ELanguages;
+import static stringAdditions.StringValidating.firstLetterToUpperCase;
+
+public class Database implements Parcelable {
     private static final Database ourInstance = new Database();
     private ArrayList<Word> data_base = new ArrayList<>();
 
+
+    protected Database(Parcel in) {
+        data_base = in.createTypedArrayList(Word.CREATOR);
+    }
+
+    public static final Creator<Database> CREATOR = new Creator<Database>() {
+        @Override
+        public Database createFromParcel(Parcel in) {
+            return new Database(in);
+        }
+
+        @Override
+        public Database[] newArray(int size) {
+            return new Database[size];
+        }
+    };
 
     public static Database getInstance() {
         return ourInstance;
@@ -119,5 +140,40 @@ public class Database {
         return where.substring(where.indexOf('['), where.indexOf(']') + 1);
     }
 
+    public static ArrayList<Card> searching(ArrayList<Word> D_B, String word, @NotNull ELanguages language){
+        ArrayList<Card> cards = new ArrayList<>();
+        switch (language) {
+            case ENGLISH: {
+                for (Word word_ : D_B)
+                    for (String russian : word_.getRusTranslations())
+                        if (word_.getEn().equals(word))
+                            cards.add(new Card(
+                                    firstLetterToUpperCase(word_.getEn()),
+                                    firstLetterToUpperCase(russian),
+                                    word_.getTranscription()));
+                break;
+            }
+            case RUSSIAN: {
+                for (Word word_ : D_B)
+                    for (String russian : word_.getRusTranslations())
+                        if (russian.equals(word))
+                            cards.add(new Card(
+                                    firstLetterToUpperCase(russian),
+                                    firstLetterToUpperCase(word_.getEn()),
+                                    word_.getTranscription()));
+                break;
+            }
+        }
+        return cards;
+    }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeTypedList(data_base);
+    }
 }

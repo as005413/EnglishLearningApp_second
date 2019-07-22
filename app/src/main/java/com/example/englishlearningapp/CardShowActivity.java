@@ -23,8 +23,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import designSolutions.CustomEditText;
 import designSolutions.DrawableClickListener;
+import entities.Card;
+import entities.Database;
+import languages.ChooseLanguage;
+import languages.ELanguages;
+import languages.UnvalidatedLanguage;
+import stringAdditions.StringValidating;
 
 public class CardShowActivity extends AppCompatActivity {
     private TextView head;
@@ -94,11 +102,16 @@ public class CardShowActivity extends AppCompatActivity {
                         search.setText("");
                         break;
                     case LEFT:
-                        if (search.isCursorVisible())
-                            search.setCursorVisible(false);
-                        else search.setCursorVisible(true);
                         String searchingRequest = search.getText().toString();
-                        searchWord(searchingRequest);
+
+                        ELanguages language = null;
+                        try {
+                            language = ChooseLanguage.defineLanguage(searchingRequest);
+                        } catch (UnvalidatedLanguage unvalidatedLanguage) {
+                            unvalidatedLanguage.printStackTrace();
+                        }
+                        String word = searchWord(searchingRequest,language);
+                        search.setText(word);
                         break;
                     default:
                         break;
@@ -107,8 +120,14 @@ public class CardShowActivity extends AppCompatActivity {
         });
     }
 
-    private void searchWord(String searchingReuest) {
+    private String searchWord(String searchingRequest, ELanguages language) {
         //Logic for searching in DB
+        Database db = mainActivityIntent.getParcelableExtra("database");
+       searchingRequest = StringValidating.validString(searchingRequest);
+        ArrayList<Card> cards = db.searching(db.getData_base(),searchingRequest,language);
+        if(!cards.isEmpty())
+            return cards.get(0).getTranslation();
+        else return "meee";
     }
 
 

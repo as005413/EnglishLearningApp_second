@@ -29,13 +29,15 @@ import languages.ChooseLanguage;
 import languages.ELanguages;
 import languages.Language;
 import languages.UnvalidatedLanguage;
+import stringAdditions.StringValidating;
+
+import entities.Database;
 
 public class MainActivity extends AppCompatActivity {
 
     private Database db = Database.getInstance();
     private ListView listView;
     private EditText wordObj;
-    private ChooseLanguage chooseLanguage;
     private ArrayList<Card> cards;
     private static CustomAdapter adapter;
 
@@ -44,16 +46,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        chooseLanguage = new ChooseLanguage();
-        chooseLanguage.createLanguageList(
-                new Language(ELanguages.ENGLISH, Pattern.compile("[a-z]")),
-                new Language(ELanguages.RUSSIAN, Pattern.compile("[а-яё]"))
-        );
+
 
         if (savedInstanceState != null) {
             cards = savedInstanceState.getParcelableArrayList("cards");
             listView = createListView();
             onListViewClick();
+            db = savedInstanceState.getParcelable("database");
         }
         wordObj = findViewById(R.id.editText2);
         if (db.getData_base().isEmpty()) //This command fixed bug with stacking database
@@ -64,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelableArrayList("cards", cards);
+        outState.putParcelable("database",db);
     }
 
 
@@ -75,52 +75,27 @@ public class MainActivity extends AppCompatActivity {
 
         String word = wordObj.getText().toString();
 
-        word = validString(word);
+        word = StringValidating.validString(word);
 
         ArrayList<Word> D_B = getDataBase();
         cards = new ArrayList<>();
         listView = createListView();
 
-        ELanguages language = defineLanguage(word);
 
-        switch (language) {
-            case ENGLISH: {
-                for (Word word_ : D_B)
-                    for (String russian : word_.getRusTranslations())
-                        if (word_.getEn().equals(word))
-                            cards.add(new Card(
-                                    firstLetterToUpperCase(word_.getEn()),
-                                    firstLetterToUpperCase(russian),
-                                    word_.getTranscription()));
-                break;
-            }
-            case RUSSIAN: {
-                for (Word word_ : D_B)
-                    for (String russian : word_.getRusTranslations())
-                        if (russian.equals(word))
-                            cards.add(new Card(
-                                    firstLetterToUpperCase(russian),
-                                    firstLetterToUpperCase(word_.getEn()),
-                                    word_.getTranscription()));
-                break;
-            }
+        ELanguages language = null;
+        try {
+            language = ChooseLanguage.defineLanguage(word);
+        } catch (UnvalidatedLanguage unvalidatedLanguage) {
+            unvalidatedLanguage.printStackTrace();
         }
 
+        cards = Database.searching(D_B,word, language);
 
         if (cards.isEmpty()) exceptionAlert("Unknown word :(");
         else listView = createListView();
         onListViewClick();
     }
 
-    private ELanguages defineLanguage(String word) {
-        ELanguages language = null;
-        try {
-            language = chooseLanguage.defineLanguage(word);
-        } catch (UnvalidatedLanguage unvalidatedLanguage) {
-            unvalidatedLanguage.printStackTrace();
-        }
-        return language;
-    }
 
     private void onListViewClick() {
 
@@ -135,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("word", cards.get(position).toString());
                 intent.putExtra("translation", translation);
                 intent.putExtra("transcription", transcription);
+                intent.putExtra("database",db);
                 startActivity(intent);
             }
         });
@@ -154,16 +130,5 @@ public class MainActivity extends AppCompatActivity {
         return listView;
     }
 
-    private String validString(@NotNull String str) {
-        if (str == null || str.isEmpty()) return str;
-        str = str.trim();
-        str = str.toLowerCase();
-        return str;
-    }
-
-    private String firstLetterToUpperCase(@NotNull String str) {
-        if (str == null || str.isEmpty()) return str;
-        return (char) (str.charAt(0) - 32) + str.substring(1);
-    }
 }
 
