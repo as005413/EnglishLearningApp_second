@@ -1,13 +1,11 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
     </style>
+
 
     <style name="PopupMenu" parent="@android:style/Widget.PopupMenu">
         <item name="android:itemBackground">#ffffff</item>
@@ -21,4 +19,17 @@
         <item name="android:background">@drawable/card_liner_layout</item>
     </style>
 
+
+    <style name="Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/toolbar</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    </style>
+
+    <style name="MySearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="suggestionRowLayout">@layout/activity_card_show</item>
+        <item name="searchIcon">@drawable/baseline_search_white_18dp</item>
+        <item name="closeIcon">@drawable/baseline_close_white_18dp</item>
+    </style>
 </resources>

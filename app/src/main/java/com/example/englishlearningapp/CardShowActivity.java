@@ -1,26 +1,30 @@
 package com.example.englishlearningapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.PopupMenu;
+import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.TextPaint;
+import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.view.ContextThemeWrapper;
-import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import designSolutions.CustomEditText;
+import designSolutions.DrawableClickListener;
 
 public class CardShowActivity extends AppCompatActivity {
     private TextView head;
@@ -32,7 +36,8 @@ public class CardShowActivity extends AppCompatActivity {
     private TextView definition;
     private TextView examples;
     private Button translateBtn;
-
+    private Toolbar toolbar;
+    private CustomEditText search;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -40,9 +45,16 @@ public class CardShowActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_show);
+
+        toolbar = findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);
         getIds();
-        getSupportActionBar().hide();
+        hideKeyBordInSearch();
+        editTextChangeListener();
+        drawableClickListener();
         showCard();
+
     }
 
     private void getIds() {
@@ -53,14 +65,58 @@ public class CardShowActivity extends AppCompatActivity {
         definition = findViewById(R.id.textViewDefinition);
         examples = findViewById(R.id.textViewExamples);
         translateBtn = findViewById(R.id.buttonTranslate);
+        toolbar = findViewById(R.id.my_toolbar);
+        search = findViewById(R.id.editTextSearch);
     }
+
+    private void hideKeyBordInSearch() {
+        search.setFocusableInTouchMode(false);
+        search.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                search.setFocusableInTouchMode(true);
+                search.requestFocus();
+                return false;
+            }
+
+
+        });
+
+    }
+
+    private void drawableClickListener() {
+        search.setCursorVisible(true);
+        search.setDrawableClickListener(new DrawableClickListener() {
+            @Override
+            public void onClick(DrawablePosition target) {
+                switch (target) {
+                    case RIGHT:
+                        search.setText("");
+                        break;
+                    case LEFT:
+                        if (search.isCursorVisible())
+                            search.setCursorVisible(false);
+                        else search.setCursorVisible(true);
+                        String searchingRequest = search.getText().toString();
+                        searchWord(searchingRequest);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+    }
+
+    private void searchWord(String searchingReuest) {
+        //Logic for searching in DB
+    }
+
 
     public void showCard() {
         mainActivityIntent = getIntent();
         //HARDCODE FOR ONE FULL CARD EXAMPLE
         String title = mainActivityIntent.getStringExtra("title");
         String word = mainActivityIntent.getStringExtra("word");
-
 
         if (title.equals("Fisherman") || title.equals("Рыбак")) {
             createFishermanCard(title, word);
@@ -86,7 +142,7 @@ public class CardShowActivity extends AppCompatActivity {
         definition.setText(addClikablePart(def), TextView.BufferType.SPANNABLE);
 
         definition.setVisibility(View.VISIBLE);
-        String exampls = "Examples:<br>A giant squid shocked the <b><u><pre  style=\"color:#F7FE00\">fisherman</u></b></pre> who caught it in " +
+        String exampls = "Examples:<br>A giant squid shocked the <b><u>fisherman</u></b> who caught it in " +
                 "his net off the coast of Vancouver Island." +
                 "<br>At the time these <b><u>fisherman</u></b> were going out sports " +
                 "fishing with hand lines.<br>" +
@@ -128,7 +184,7 @@ public class CardShowActivity extends AppCompatActivity {
                         default:
                             popupTran = "Something wrong!";
                     }
-                    Toast.makeText(getApplicationContext(),popupTran,Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), popupTran, Toast.LENGTH_LONG).show();
                 }
 
                 @Override
@@ -149,22 +205,35 @@ public class CardShowActivity extends AppCompatActivity {
         mediaPlayer.start();
     }
 
-//    private void showPopupMenu(View view, String str) {
-//        Context wrapper = new ContextThemeWrapper(this, R.style.PopupMenu);
-//        PopupMenu popupMenu = new PopupMenu(wrapper, view);
-//        popupMenu.inflate(R.menu.popupmenu);
-//        popupMenu.getMenu().add(1, R.id.menugroup1, 1, str);
-//        popupMenu.setGravity(Gravity.CENTER_HORIZONTAL);
-//        popupMenu.show();
-//    }
-
     @SuppressLint("SetTextI18n")
     public void onClickShowTranslation(View view) {
         String btnText = translateBtn.getText().toString();
-
         if (btnText.equals("Show translation"))
             translateBtn.setText(mainActivityIntent.getStringExtra("translation"));
         else translateBtn.setText("Show translation");
     }
 
+    public void editTextChangeListener() {
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length() >= 1) {
+                    search.setCompoundDrawablesWithIntrinsicBounds(R.drawable.baseline_search_white_18dp, 0, R.drawable.baseline_close_white_18dp, 0);
+                } else {
+                    search.setCompoundDrawablesWithIntrinsicBounds(R.drawable.baseline_search_white_18dp, 0, 0, 0);
+                }
+            }
+
+        });
+    }
 }

@@ -1,4 +1,4 @@
-#Sun Jul 21 00:33:55 MSK 2019
+#Mon Jul 22 18:04:20 MSK 2019
 base.0=C\:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
 path.0=classes.dex
 renamed.0=classes.dex

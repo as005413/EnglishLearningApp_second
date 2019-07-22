@@ -5,26 +5,48 @@
     android:id="@+id/layOut"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1e1f28"
+    android:background="@color/card_show_background"
     tools:context=".CardShowActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        style="@style/Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/toolbar"
+            app:srcCompat="@drawable/baseline_menu_white_18dp" />
+
+        <include layout="@layout/search_view" />
+
+    </androidx.appcompat.widget.Toolbar>
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="58dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
+        tools:layout_editor_absoluteX="-20dp">
 
         <TextView
             android:id="@+id/textViewHead"
-            android:layout_width="308dp"
-            android:layout_height="53dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/opti_blast"
             android:gravity="center"
@@ -46,7 +68,6 @@
             android:background="@drawable/view_color"
             app:layout_constraintTop_toBottomOf="@+id/textViewHead"
             tools:layout_editor_absoluteX="1dp" />
-
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="182dp"
@@ -81,9 +102,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp">
+                    android:layout_marginBottom="16dp"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -94,11 +116,11 @@
                             android:id="@+id/textViewWord"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="16dp"
                             android:layout_marginBottom="16dp"
                             android:gravity="left"
-                            android:layout_gravity="center_vertical"
                             android:textColor="@color/smoke_grey"
                             android:textSize="24sp"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -111,11 +133,11 @@
                             android:id="@+id/imageButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
                             android:layout_marginStart="16dp"
+                            android:background="#2b2b38"
                             android:onClick="OnClickSound"
                             android:visibility="gone"
-                            android:background="#2b2b38"
-                            android:layout_gravity="center_vertical"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toEndOf="@+id/textViewWord"
