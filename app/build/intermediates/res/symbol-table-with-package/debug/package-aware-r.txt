@@ -856,6 +856,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addToVacab
 id alertTitle
 id all
 id always
@@ -864,7 +865,6 @@ id barrier
 id beginning
 id blocking
 id bottom
-id button
 id buttonPanel
 id buttonTranslate
 id center
@@ -966,6 +966,7 @@ id select_dialog_listview
 id shortcut
 id showCustom
 id showHome
+id showMenu
 id showTitle
 id spacer
 id spinner

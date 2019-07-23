@@ -1,61 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="arm64-v8a,armeabi-v7a,armeabi"
-    api-level="26"
-    build-mode="FULL"
-    density="xxhdpi"
+    abi="armeabi-v7a,armeabi"
+    api-level="21"
+    build-mode="COLD"
+    density="hdpi"
     format="10"
+    ir-eligibility="COMPATIBLE"
     plugin-version="3.4.1"
-    timestamp="1563827862419"
+    timestamp="1563886907958"
     token="7843232330282601179"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="247" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="6508" />
+        duration="29" />
     <task
         name="verifier"
-        duration="0" />
+        duration="9" />
 
-    <artifact
-        location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-        type="SPLIT" />
     <artifact
         location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
         type="SPLIT" />
@@ -65,41 +33,98 @@
 
     <build
         build-mode="FULL"
-        timestamp="1563827862419"
+        timestamp="1563882342903"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
+        <artifact
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
         <artifact
             location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
+        <artifact
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="CLASS_ADDED"
+        timestamp="1563885309369"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1563886652111"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1563886811695"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1563886907958"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\gleba\AndroidStudioProjects\EnglishLearningApp\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />

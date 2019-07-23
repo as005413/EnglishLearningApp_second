@@ -16,12 +16,12 @@
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\color\\abc_tint_edittext.xml"
     },
     {
-        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_half_black_48dp.png.flat",
-        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_48dp.png"
-    },
-    {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
     {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
@@ -128,12 +128,12 @@
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\6c973bcde2128d0aef7f5cb6da16975c\\res\\layout\\preference_dialog_edittext.xml"
     },
     {
-        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_default.xml.flat",
-        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\color-v23\\abc_tint_default.xml"
-    },
-    {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_icon_background.xml.flat",
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\d99f5e7d9afe45a120fcc9e6f93309c1\\res\\drawable\\notification_icon_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_default.xml.flat",
+        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\color-v23\\abc_tint_default.xml"
     },
     {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_text_select_handle_left_mtrl_light.png.flat",
@@ -144,20 +144,20 @@
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-xxhdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
-    },
-    {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
     },
     {
-        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_36dp.png.flat",
-        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-mdpi-v4\\abc_ic_star_black_36dp.png"
+        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-xxhdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-mdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-mdpi-v4\\abc_ic_star_black_36dp.png"
     },
     {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_preference.xml.flat",
@@ -260,12 +260,12 @@
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-mdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
     },
     {
-        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\interpolator_btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml.flat",
-        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\interpolator\\btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml"
-    },
-    {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-mdpi-v4\\abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\interpolator_btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml.flat",
+        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\interpolator\\btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml"
     },
     {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
@@ -276,16 +276,16 @@
         "source": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\src\\main\\res\\font\\opti_blast.ttf"
     },
     {
-        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
-        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
+        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_preference_list_divider_material.xml.flat",
+        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\6c973bcde2128d0aef7f5cb6da16975c\\res\\drawable-v21\\preference_list_divider_material.xml"
     },
     {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_borderless_material.xml.flat",
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable\\abc_btn_borderless_material.xml"
     },
     {
-        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_preference_list_divider_material.xml.flat",
-        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\6c973bcde2128d0aef7f5cb6da16975c\\res\\drawable-v21\\preference_list_divider_material.xml"
+        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
+        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
     {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
@@ -296,12 +296,12 @@
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
-        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_48dp.png"
-    },
-    {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-xhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
     {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxxhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
@@ -340,12 +340,12 @@
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-mdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
-        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_bar_up_container.xml.flat",
-        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\layout\\abc_action_bar_up_container.xml"
-    },
-    {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_bar_up_container.xml.flat",
+        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\layout\\abc_action_bar_up_container.xml"
     },
     {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_slide_out_bottom.xml.flat",
@@ -380,12 +380,12 @@
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },
     {
-        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_action_bar_item_background_material.xml.flat",
-        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
-    },
-    {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-mdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_action_bar_item_background_material.xml.flat",
+        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     },
     {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
@@ -428,24 +428,24 @@
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable\\abc_ic_search_api_material.xml"
     },
     {
-        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
-    },
-    {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v23_abc_control_background_material.xml.flat",
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-v23\\abc_control_background_material.xml"
     },
     {
-        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_voice_search_api_material.xml.flat",
-        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable\\abc_ic_voice_search_api_material.xml"
+        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_primary_text_disable_only_material_dark.xml.flat",
+        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
     },
     {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_bg_low.xml.flat",
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\d99f5e7d9afe45a120fcc9e6f93309c1\\res\\drawable\\notification_bg_low.xml"
     },
     {
-        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_primary_text_disable_only_material_dark.xml.flat",
-        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_voice_search_api_material.xml.flat",
+        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable\\abc_ic_voice_search_api_material.xml"
     },
     {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\anim_down_from_top.xml.flat",
@@ -456,16 +456,16 @@
         "source": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\d99f5e7d9afe45a120fcc9e6f93309c1\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
+        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_notification_action_background.xml.flat",
+        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\d99f5e7d9afe45a120fcc9e6f93309c1\\res\\drawable-v21\\notification_action_background.xml"
     },
     {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
     },
     {
-        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_notification_action_background.xml.flat",
-        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\d99f5e7d9afe45a120fcc9e6f93309c1\\res\\drawable-v21\\notification_action_background.xml"
+        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\d99f5e7d9afe45a120fcc9e6f93309c1\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
@@ -524,12 +524,12 @@
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\d99f5e7d9afe45a120fcc9e6f93309c1\\res\\layout-v21\\notification_action.xml"
     },
     {
-        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
-        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-xhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-xxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "C:\\Users\\gleba\\.gradle\\caches\\transforms-2\\files-2.1\\722bd257ec8401e9aa179af59e7a661a\\res\\drawable-xhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\gleba\\AndroidStudioProjects\\EnglishLearningApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
