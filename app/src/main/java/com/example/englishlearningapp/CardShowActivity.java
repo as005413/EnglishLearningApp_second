@@ -273,7 +273,7 @@ public class CardShowActivity extends AppCompatActivity {
                     search.setCompoundDrawablesWithIntrinsicBounds(R.drawable.baseline_search_white_18dp, 0, 0, 0);
                 }
             }
-
+//
         });
     }
 }
