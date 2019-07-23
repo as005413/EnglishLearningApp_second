@@ -18,12 +18,24 @@
         app:layout_constraintTop_toTopOf="parent">
 
             <ImageButton
+                android:id="@+id/showMenu"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@color/toolbar"
                 app:srcCompat="@drawable/baseline_menu_white_18dp" />
 
+
+        <ImageButton
+            android:id="@+id/addToVacab"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/toolbar"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/baseline_collections_bookmark_white_18dp"
+            />
+
         <include layout="@layout/search_view" />
+
 
     </androidx.appcompat.widget.Toolbar>
 

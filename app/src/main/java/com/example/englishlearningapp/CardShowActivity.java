@@ -17,22 +17,18 @@ import android.text.style.ClickableSpan;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+
 
 import designSolutions.CustomEditText;
 import designSolutions.DrawableClickListener;
 import entities.Card;
-import entities.Database;
-import languages.ChooseLanguage;
-import languages.ELanguages;
-import languages.UnvalidatedLanguage;
-import stringAdditions.StringValidating;
+import entities.vocabulars.UserVocabulars;
+
 
 public class CardShowActivity extends AppCompatActivity {
     private TextView head;
@@ -46,6 +42,10 @@ public class CardShowActivity extends AppCompatActivity {
     private Button translateBtn;
     private Toolbar toolbar;
     private CustomEditText search;
+    private Card currentCard;
+    private UserVocabulars userVocabulars;
+    private ImageButton imgBook;
+    private ImageButton menu;
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -59,6 +59,7 @@ public class CardShowActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(null);
         getIds();
+
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +71,25 @@ public class CardShowActivity extends AppCompatActivity {
         editTextChangeListener();
         drawableClickListener();
         showCard();
+//STUB
+        imgBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userVocabulars = new UserVocabulars();
+                userVocabulars.createVocabulary("System test","Some description");
+                userVocabulars.getVocabulary("System test").addCard(currentCard);
+            }
+        });
 
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(CardShowActivity.this,
+                        userVocabulars.getVocabulary("System test").getCard(currentCard).toString()
+                        ,Toast.LENGTH_LONG).show();
+            }
+        });
+//STUB END
     }
 
     private void getIds() {
@@ -83,6 +102,10 @@ public class CardShowActivity extends AppCompatActivity {
         translateBtn = findViewById(R.id.buttonTranslate);
         toolbar = findViewById(R.id.my_toolbar);
         search = findViewById(R.id.editTextSearch);
+        mainActivityIntent = getIntent();
+        menu = findViewById(R.id.showMenu);
+        imgBook = findViewById(R.id.addToVacab);
+        currentCard = mainActivityIntent.getParcelableExtra("card");
     }
 
     private void hideKeyBordInSearch() {
@@ -110,6 +133,7 @@ public class CardShowActivity extends AppCompatActivity {
                     case RIGHT:
                         search.setText(null);
                         search.setHint("");
+                        search.setFocusable(false);
                         break;
                     case LEFT:
                         String searchingRequest = search.getText().toString();
@@ -129,10 +153,10 @@ public class CardShowActivity extends AppCompatActivity {
 
 
     public void showCard() {
-        mainActivityIntent = getIntent();
+
         //HARDCODE FOR ONE FULL CARD EXAMPLE
-        String title = mainActivityIntent.getStringExtra("title");
-        String word = mainActivityIntent.getStringExtra("word");
+        String title = currentCard.getWord();
+        String word = currentCard.getTranscription();
 
         if (title.equals("Fisherman") || title.equals("Рыбак")) {
             createFishermanCard(title, word);
@@ -152,7 +176,7 @@ public class CardShowActivity extends AppCompatActivity {
 
         head.setText(title);
 
-        this.word.setText(mainActivityIntent.getStringExtra("transcription"));
+        this.word.setText(word);
         String def = "a \0person \0who \0catches \0fish as a job or as a \0hobby ";
         definition.setMovementMethod(LinkMovementMethod.getInstance());
         definition.setText(addClikablePart(def), TextView.BufferType.SPANNABLE);
@@ -225,7 +249,7 @@ public class CardShowActivity extends AppCompatActivity {
     public void onClickShowTranslation(View view) {
         String btnText = translateBtn.getText().toString();
         if (btnText.equals("Show translation"))
-            translateBtn.setText(mainActivityIntent.getStringExtra("translation"));
+            translateBtn.setText(currentCard.getTranslation());
         else translateBtn.setText("Show translation");
     }
 
@@ -252,6 +276,4 @@ public class CardShowActivity extends AppCompatActivity {
 
         });
     }
-
-
 }
