@@ -1,12 +1,12 @@
 package designSolutions;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+
 import android.widget.EditText;
 
 
@@ -35,6 +35,7 @@ public class CustomEditText extends EditText {
         super.onDraw(canvas);
 
     }
+
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -79,7 +80,6 @@ public class CustomEditText extends EditText {
 
             // this works for left since container shares 0,0 origin with bounds
             if (drawableLeft != null) {
-                bounds = null;
                 bounds = drawableLeft.getBounds();
 
                 int x, y;
@@ -89,16 +89,16 @@ public class CustomEditText extends EditText {
                 y = actionY;
 
                 if (!bounds.contains(actionX, actionY)) {
-                    /** Gives the +20 area for tapping. */
-                    x = (int) (actionX - extraTapArea);
-                    y = (int) (actionY - extraTapArea);
+                    /* Gives the +20 area for tapping. */
+                    x =  (actionX - extraTapArea);
+                    y =  (actionY - extraTapArea);
 
                     if (x <= 0)
                         x = actionX;
                     if (y <= 0)
                         y = actionY;
 
-                    /** Creates square from the smallest value */
+                    /* Creates square from the smallest value */
                     if (x < y) {
                         y = x;
                     }
@@ -115,23 +115,22 @@ public class CustomEditText extends EditText {
 
             if (drawableRight != null) {
 
-                bounds = null;
                 bounds = drawableRight.getBounds();
 
                 int x, y;
                 int extraTapArea = 13;
 
-                /**
+                /*
                  * IF USER CLICKS JUST OUT SIDE THE RECTANGLE OF THE DRAWABLE
                  * THAN ADD X AND SUBTRACT THE Y WITH SOME VALUE SO THAT AFTER
                  * CALCULATING X AND Y CO-ORDINATE LIES INTO THE DRAWBABLE
                  * BOUND. - this process help to increase the tappable area of
                  * the rectangle.
                  */
-                x = (int) (actionX + extraTapArea);
-                y = (int) (actionY - extraTapArea);
+                x =  (actionX + extraTapArea);
+                y =  (actionY - extraTapArea);
 
-                /**Since this is right drawable subtract the value of x from the width
+                /*Since this is right drawable subtract the value of x from the width
                  * of view. so that width - tappedarea will result in x co-ordinate in drawable bound.
                  */
                 x = getWidth() - x;
@@ -154,7 +153,7 @@ public class CustomEditText extends EditText {
                 if (y <= 0)
                     y = actionY;
 
-                /**If drawble bounds contains the x and y points then move ahead.*/
+                /*If drawble bounds contains the x and y points then move ahead.*/
                 if (bounds.contains(x, y) && clickListener != null) {
                     clickListener
                             .onClick(DrawableClickListener.DrawablePosition.RIGHT);

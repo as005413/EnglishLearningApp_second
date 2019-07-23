@@ -47,8 +47,8 @@ public class CustomAdapter extends ArrayAdapter<Card> {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.row_item, parent, false);
-            viewHolder.txtName = (TextView) convertView.findViewById(R.id.name);
-            viewHolder.txtType = (TextView) convertView.findViewById(R.id.type);
+            viewHolder.txtName =  convertView.findViewById(R.id.name);
+            viewHolder.txtType =  convertView.findViewById(R.id.type);
 
             result = convertView;
 
@@ -58,9 +58,9 @@ public class CustomAdapter extends ArrayAdapter<Card> {
             result = convertView;
         }
 
-        Animation animation = AnimationUtils.loadAnimation(
-                mContext, (position > lastPosition) ? R.anim.up_from_bottom : R.anim.down_from_top);
-        result.startAnimation(animation);
+      //  Animation animation = AnimationUtils.loadAnimation(
+        //        mContext, (position > lastPosition) ? R.anim.up_from_bottom : R.anim.down_from_top);
+        //result.startAnimation(animation);
         lastPosition = position;
 
         String title;
@@ -71,7 +71,7 @@ public class CustomAdapter extends ArrayAdapter<Card> {
             def = "a person who catches fish as a job or as a hobby.";
         }
         else {
-            title = dataModel.getTranslation();
+            title = dataModel.getWord();
             Random random = new Random();
             Integer version = random.nextInt() % 3 + 2;
             String versionToString = version.toString();

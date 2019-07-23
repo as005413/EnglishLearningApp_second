@@ -47,6 +47,7 @@ public class CardShowActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private CustomEditText search;
 
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,13 @@ public class CardShowActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(null);
         getIds();
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                search.setCursorVisible(true);
+                search.setHint(R.string.search);
+            }
+        });
         hideKeyBordInSearch();
         editTextChangeListener();
         drawableClickListener();
@@ -93,41 +101,30 @@ public class CardShowActivity extends AppCompatActivity {
     }
 
     private void drawableClickListener() {
-        search.setCursorVisible(true);
+
+
         search.setDrawableClickListener(new DrawableClickListener() {
             @Override
             public void onClick(DrawablePosition target) {
                 switch (target) {
                     case RIGHT:
-                        search.setText("");
+                        search.setText(null);
+                        search.setHint("");
                         break;
                     case LEFT:
                         String searchingRequest = search.getText().toString();
-
-                        ELanguages language = null;
-                        try {
-                            language = ChooseLanguage.defineLanguage(searchingRequest);
-                        } catch (UnvalidatedLanguage unvalidatedLanguage) {
-                            unvalidatedLanguage.printStackTrace();
+                        search.setHint(R.string.search);
+                        if (!searchingRequest.isEmpty()) {
+                            Intent intent = new Intent(CardShowActivity.this, MainActivity.class);
+                            intent.putExtra("word", searchingRequest);
+                            startActivity(intent);
                         }
-                        String word = searchWord(searchingRequest,language);
-                        search.setText(word);
                         break;
                     default:
                         break;
                 }
             }
         });
-    }
-
-    private String searchWord(String searchingRequest, ELanguages language) {
-        //Logic for searching in DB
-        Database db = mainActivityIntent.getParcelableExtra("database");
-       searchingRequest = StringValidating.validString(searchingRequest);
-        ArrayList<Card> cards = db.searching(db.getData_base(),searchingRequest,language);
-        if(!cards.isEmpty())
-            return cards.get(0).getTranslation();
-        else return "meee";
     }
 
 
@@ -255,4 +252,6 @@ public class CardShowActivity extends AppCompatActivity {
 
         });
     }
+
+
 }

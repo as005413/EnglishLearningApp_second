@@ -19,7 +19,7 @@
         android:backgroundTint="@color/background_tint_edit_text"
         android:ellipsize="start"
         android:ems="10"
-        android:gravity="left"
+        android:gravity="start"
         android:hint="@string/hint_for_entering"
         android:inputType="textCapWords"
         android:textSize="24sp"
@@ -29,23 +29,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="57dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:onClick="onClick"
-        android:text="@string/text_for_translate_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.976"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.011" />
 
     <ListView
         android:id="@+id/listView"

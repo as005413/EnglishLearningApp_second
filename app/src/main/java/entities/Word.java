@@ -1,11 +1,11 @@
 package entities;
 
 import android.os.Parcel;
-import android.os.Parcelable;
+
 
 import java.util.List;
 
-public class Word implements Parcelable {
+public class Word  {
     private String en;
     private String transcription;
     private List<String> rusTranslations;
@@ -24,18 +24,6 @@ public class Word implements Parcelable {
         transcription = in.readString();
         rusTranslations = in.createStringArrayList();
     }
-
-    public static final Creator<Word> CREATOR = new Creator<Word>() {
-        @Override
-        public Word createFromParcel(Parcel in) {
-            return new Word(in);
-        }
-
-        @Override
-        public Word[] newArray(int size) {
-            return new Word[size];
-        }
-    };
 
     public List<String> getRusTranslations() {
         return rusTranslations;
@@ -62,15 +50,4 @@ public class Word implements Parcelable {
     }
 
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(en);
-        parcel.writeString(transcription);
-        parcel.writeStringList(rusTranslations);
-    }
 }

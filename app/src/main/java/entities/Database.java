@@ -17,26 +17,10 @@ import java.util.ArrayList;
 import languages.ELanguages;
 import static stringAdditions.StringValidating.firstLetterToUpperCase;
 
-public class Database implements Parcelable {
+public class Database implements  IDatabase {
     private static final Database ourInstance = new Database();
     private ArrayList<Word> data_base = new ArrayList<>();
 
-
-    protected Database(Parcel in) {
-        data_base = in.createTypedArrayList(Word.CREATOR);
-    }
-
-    public static final Creator<Database> CREATOR = new Creator<Database>() {
-        @Override
-        public Database createFromParcel(Parcel in) {
-            return new Database(in);
-        }
-
-        @Override
-        public Database[] newArray(int size) {
-            return new Database[size];
-        }
-    };
 
     public static Database getInstance() {
         return ourInstance;
@@ -63,9 +47,9 @@ public class Database implements Parcelable {
                         transcription;
                 ArrayList<String> rusTranslations;
 
-                transcription = createTranscription(oneWord);
-                en = createEnWord(oneWord, en);
-                rus = createRusWord(oneWord,rus);
+                transcription = getTranscription(oneWord);
+                en = getEnWord(oneWord, en);
+                rus = getRusWord(oneWord,rus);
                 rusTranslations = createSomeRussianTranslations(rus);
 
 
@@ -82,7 +66,7 @@ public class Database implements Parcelable {
         }
     }
 
-    private String createRusWord(@NotNull String where, String rus) {
+    public String getRusWord(@NotNull String where, String rus) {
         for (int i = 0; i < where.length(); i++) {
             if ((int) where.charAt(i) >= 'а' && where.charAt(i) <= 'я' ||
                     where.charAt(i) == ',') {
@@ -95,7 +79,7 @@ public class Database implements Parcelable {
         return rus;
     }
 
-    private String createEnWord(@NotNull String where, String en) {
+    public String getEnWord(@NotNull String where, String en) {
         int numberOfStart = 0;
         for (int i = 0; i < where.length(); i++) {
             if ((int) where.charAt(i) >= 97 &&
@@ -136,7 +120,7 @@ public class Database implements Parcelable {
     }
 
     @NotNull
-    private String createTranscription(@NotNull String where) {
+    public String getTranscription(@NotNull String where) {
         return where.substring(where.indexOf('['), where.indexOf(']') + 1);
     }
 
@@ -146,7 +130,7 @@ public class Database implements Parcelable {
             case ENGLISH: {
                 for (Word word_ : D_B)
                     for (String russian : word_.getRusTranslations())
-                        if (word_.getEn().equals(word))
+                        if (word_.getEn().startsWith(word))
                             cards.add(new Card(
                                     firstLetterToUpperCase(word_.getEn()),
                                     firstLetterToUpperCase(russian),
@@ -156,10 +140,10 @@ public class Database implements Parcelable {
             case RUSSIAN: {
                 for (Word word_ : D_B)
                     for (String russian : word_.getRusTranslations())
-                        if (russian.equals(word))
+                        if (russian.startsWith(word))
                             cards.add(new Card(
-                                    firstLetterToUpperCase(russian),
                                     firstLetterToUpperCase(word_.getEn()),
+                                    firstLetterToUpperCase(russian),
                                     word_.getTranscription()));
                 break;
             }
@@ -167,13 +151,4 @@ public class Database implements Parcelable {
         return cards;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeTypedList(data_base);
-    }
 }
