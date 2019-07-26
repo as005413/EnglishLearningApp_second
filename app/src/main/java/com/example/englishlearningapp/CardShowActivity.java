@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.Editable;
@@ -19,6 +20,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,9 +30,11 @@ import designSolutions.CustomEditText;
 import designSolutions.DrawableClickListener;
 import entities.Card;
 import entities.vocabulars.UserVocabulars;
+import stringAdditions.StringValidating;
 
 
 public class CardShowActivity extends AppCompatActivity {
+
     private TextView head;
     private TextView word;
     private ImageView imageView;
@@ -46,6 +50,7 @@ public class CardShowActivity extends AppCompatActivity {
     private UserVocabulars userVocabulars;
     private ImageButton imgBook;
     private ImageButton menu;
+    private LinearLayout linearLayout;
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -63,8 +68,14 @@ public class CardShowActivity extends AppCompatActivity {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Drawable drawable = getResources().getDrawable(R.drawable.search_view);
+                search.setBackground(drawable);
+                search.setCompoundDrawablesWithIntrinsicBounds(R.drawable.baseline_search_black_18dp,
+                        0,0,0);
                 search.setCursorVisible(true);
+
                 search.setHint(R.string.search);
+
             }
         });
         hideKeyBordInSearch();
@@ -90,6 +101,9 @@ public class CardShowActivity extends AppCompatActivity {
             }
         });
 //STUB END
+
+        setLinearLayoutClickListener();
+
     }
 
     private void getIds() {
@@ -106,6 +120,21 @@ public class CardShowActivity extends AppCompatActivity {
         menu = findViewById(R.id.showMenu);
         imgBook = findViewById(R.id.addToVacab);
         currentCard = mainActivityIntent.getParcelableExtra("card");
+        linearLayout = findViewById(R.id.linearLayout);
+    }
+
+    private void setLinearLayoutClickListener(){
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                search.setFocusable(false);
+                search.setHint("");
+                if (search.getText() != null) search.setText("");
+                search.setCompoundDrawablesWithIntrinsicBounds(R.drawable.baseline_search_white_18dp,
+                        0, 0, 0);
+                search.setBackground(getResources().getDrawable(R.color.scroll_activity_card_show_back));
+            }
+        });
     }
 
     private void hideKeyBordInSearch() {
@@ -121,10 +150,10 @@ public class CardShowActivity extends AppCompatActivity {
 
         });
 
+
     }
 
     private void drawableClickListener() {
-
 
         search.setDrawableClickListener(new DrawableClickListener() {
             @Override
@@ -132,10 +161,13 @@ public class CardShowActivity extends AppCompatActivity {
                 switch (target) {
                     case RIGHT:
                         search.setText(null);
-                        search.setHint("");
-                        search.setFocusable(false);
+                        search.setHint("Search");
                         break;
                     case LEFT:
+                        Drawable drawable = getResources().getDrawable(R.drawable.search_view);
+                        search.setBackground(drawable);
+                        search.setCompoundDrawablesWithIntrinsicBounds(R.drawable.baseline_search_black_18dp,
+                                0, R.drawable.baseline_close_black_18dp, 0);
                         String searchingRequest = search.getText().toString();
                         search.setHint(R.string.search);
                         if (!searchingRequest.isEmpty()) {
@@ -190,7 +222,6 @@ public class CardShowActivity extends AppCompatActivity {
 
         examples.setText(Html.fromHtml(exampls));
         examples.setVisibility(View.VISIBLE);
-        translateBtn.setVisibility(View.VISIBLE);
         imageView.setVisibility(View.VISIBLE);
     }
 
@@ -249,7 +280,7 @@ public class CardShowActivity extends AppCompatActivity {
     public void onClickShowTranslation(View view) {
         String btnText = translateBtn.getText().toString();
         if (btnText.equals("Show translation"))
-            translateBtn.setText(currentCard.getTranslation());
+            translateBtn.setText(StringValidating.firstLetterToUpperCase(currentCard.getTranslation()));
         else translateBtn.setText("Show translation");
     }
 
@@ -268,12 +299,13 @@ public class CardShowActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() >= 1) {
-                    search.setCompoundDrawablesWithIntrinsicBounds(R.drawable.baseline_search_white_18dp, 0, R.drawable.baseline_close_white_18dp, 0);
+                    search.setCompoundDrawablesWithIntrinsicBounds(R.drawable.baseline_search_black_18dp,
+                            0, R.drawable.baseline_close_black_18dp, 0);
                 } else {
-                    search.setCompoundDrawablesWithIntrinsicBounds(R.drawable.baseline_search_white_18dp, 0, 0, 0);
+                    search.setCompoundDrawablesWithIntrinsicBounds(R.drawable.baseline_search_black_18dp,
+                            0, 0, 0);
                 }
             }
-//
         });
     }
 }

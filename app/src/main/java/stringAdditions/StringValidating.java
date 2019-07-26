@@ -4,14 +4,16 @@ import org.jetbrains.annotations.NotNull;
 
 public class StringValidating {
     public static String validString(@NotNull String str) {
-        if (str == null || str.isEmpty()) return str;
+        if (str.isEmpty()) return str;
         str = str.trim();
         str = str.toLowerCase();
         return str;
     }
 
     public static String firstLetterToUpperCase(@NotNull String str) {
-        if (str == null || str.isEmpty()) return str;
-        return (char) (str.charAt(0) - 32) + str.substring(1);
+        if (str.isEmpty()) return str;
+            String string = str.substring(0, 1);
+            return string.toUpperCase() + str.substring(1);
+
     }
 }
