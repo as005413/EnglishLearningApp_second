@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -15,9 +16,12 @@ import android.text.TextPaint;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import org.jetbrains.annotations.NotNull;
 
 import designSolutions.CustomEditText;
 import designSolutions.DrawableClickListener;
@@ -65,39 +70,19 @@ public class CardShowActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(null);
         getIds();
 
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Drawable drawable = getResources().getDrawable(R.drawable.search_view);
-                search.setBackground(drawable);
-                search.setCompoundDrawablesWithIntrinsicBounds(R.drawable.baseline_search_black_18dp,
-                        0,0,0);
-                search.setCursorVisible(true);
-
-                search.setHint(R.string.search);
-
-            }
-        });
+        search.setOnClickListener(ETonClickListener);
+        search.setOnEditorActionListener(onEditorActionListener);
         hideKeyBordInSearch();
         editTextChangeListener();
         drawableClickListener();
         showCard();
 //STUB
-        imgBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                userVocabulars = new UserVocabulars();
-                userVocabulars.createVocabulary("System test","Some description");
-                userVocabulars.getVocabulary("System test").addCard(currentCard);
-            }
-        });
+        imgBook.setOnClickListener(imgBookClickListener);
 
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(CardShowActivity.this,
-                        userVocabulars.getVocabulary("System test").getCard(currentCard).toString()
-                        ,Toast.LENGTH_LONG).show();
+
             }
         });
 //STUB END
@@ -105,6 +90,54 @@ public class CardShowActivity extends AppCompatActivity {
         setLinearLayoutClickListener();
 
     }
+
+    private ImageButton.OnClickListener imgBookClickListener = new ImageButton.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+            userVocabulars = new UserVocabulars();
+            userVocabulars.createVocabulary("System test","Some description");
+            userVocabulars.getVocabulary("System test").addCard(currentCard);
+        }
+    };
+
+    private ImageButton.OnClickListener menuClickListener = new ImageButton.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+            Toast.makeText(CardShowActivity.this,
+                    userVocabulars.getVocabulary("System test").getCard(currentCard).toString()
+                    ,Toast.LENGTH_LONG).show();
+        }
+    };
+
+    private EditText.OnClickListener ETonClickListener = new View.OnClickListener (){
+        @Override
+        public void onClick(View view) {
+            Drawable drawable = getResources().getDrawable(R.drawable.search_view);
+            search.setBackground(drawable);
+            search.setCursorVisible(true);
+            search.setHint(R.string.search);
+        }
+    };
+
+    private EditText.OnEditorActionListener onEditorActionListener = new EditText.OnEditorActionListener(){
+
+        @Override
+        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+           switch (i){
+               case EditorInfo
+                       .IME_ACTION_SEARCH:
+                   String searchingRequest = search.getText().toString();
+                   search.setHint(R.string.search);
+                   if (!searchingRequest.isEmpty()) {
+                       Intent intent = new Intent(CardShowActivity.this, MainActivity.class);
+                       intent.putExtra("word", searchingRequest);
+                       startActivity(intent);
+                   }
+                   break;
+           }
+            return false;
+        }
+    };
 
     private void getIds() {
         head = findViewById(R.id.textViewHead);
@@ -166,7 +199,7 @@ public class CardShowActivity extends AppCompatActivity {
                     case LEFT:
                         Drawable drawable = getResources().getDrawable(R.drawable.search_view);
                         search.setBackground(drawable);
-                        search.setCompoundDrawablesWithIntrinsicBounds(R.drawable.baseline_search_black_18dp,
+                        search.setCompoundDrawablesWithIntrinsicBounds(0,
                                 0, R.drawable.baseline_close_black_18dp, 0);
                         String searchingRequest = search.getText().toString();
                         search.setHint(R.string.search);
@@ -182,7 +215,6 @@ public class CardShowActivity extends AppCompatActivity {
             }
         });
     }
-
 
     public void showCard() {
 
@@ -299,10 +331,10 @@ public class CardShowActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 if (editable.length() >= 1) {
-                    search.setCompoundDrawablesWithIntrinsicBounds(R.drawable.baseline_search_black_18dp,
+                    search.setCompoundDrawablesWithIntrinsicBounds(R.drawable.search_view_icon,
                             0, R.drawable.baseline_close_black_18dp, 0);
                 } else {
-                    search.setCompoundDrawablesWithIntrinsicBounds(R.drawable.baseline_search_black_18dp,
+                    search.setCompoundDrawablesWithIntrinsicBounds(R.drawable.search_view_icon,
                             0, 0, 0);
                 }
             }

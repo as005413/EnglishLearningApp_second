@@ -27,6 +27,7 @@
         android:textColor="@color/black"
         android:textColorHint="@color/smoke_grey"
         android:textSize="21sp"
+        android:imeOptions="actionSearch"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
